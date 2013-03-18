@@ -4,6 +4,8 @@ Console based "Vier gewinnt".
 
 == Game play
 
+$ connect_four
+
 playerx> 2
 
  12345678
