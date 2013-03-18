@@ -4,6 +4,8 @@ Console based "Vier gewinnt".
 
 == Game play
 
+$ connect_four
+
 playerx> 2
 
  12345678
@@ -31,7 +33,7 @@ playero> 4
 
 
 
-== Test driven development (TDD) with test-unit
+== Test driven development (TDD) with minitest
 
   rake test
 
@@ -41,6 +43,9 @@ playero> 4
 
   git clone git@github.com:YOURNAME/connect_four.git
   cd connect_four
+  # mit rvm:
+  # ruby -v         # -> 1.9.3
+  # rvm gemset name # => connect_four
   bundle
   rake
 
