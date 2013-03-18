@@ -1,4 +1,4 @@
 source :rubygems
 
 gem 'rake'
-gem 'test-unit'
+gem 'minitest'
