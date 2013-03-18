@@ -33,7 +33,7 @@ playero> 4
 
 
 
-== Test driven development (TDD) with test-unit
+== Test driven development (TDD) with minitest
 
   rake test
 
