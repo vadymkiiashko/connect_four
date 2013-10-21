@@ -45,7 +45,6 @@ playero> 4
   cd connect_four
   # mit rvm:
   # ruby -v         # -> 2.0.0
-  # rvm gemset name # => connect_four
   bundle
   rake
 
