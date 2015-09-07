@@ -39,12 +39,12 @@ playero> 4
 
 == Setup
 
- Fork from https://github.com/neopoly/connect_four
+Fork from https://github.com/neopoly/connect_four
 
   git clone git@github.com:YOURNAME/connect_four.git
   cd connect_four
   # mit rvm:
-  # ruby -v         # -> 2.0.0
+  # ruby -v         # -> 2.2.3
   bundle
   rake
 
@@ -52,13 +52,13 @@ playero> 4
 
 === Ruby
 
-  ruby-2.0.0
+  ruby-2.2.3
 
 === Ruby version manager (rvm)
 
-  rvm install ruby-2.0.0
-  rvm use 2.0.0
-  ruby -v # => 2.0.0
+  rvm install ruby-2.2.3
+  rvm use 2.2.3
+  ruby -v # => 2.2.3
 
 === Gems
 
