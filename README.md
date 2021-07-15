@@ -9,7 +9,7 @@ Console based "Connect four" game.
 ## Game play
 
 ```shell
-$ connect_four
+$ bin/connect_four
 ```
 
 ```shell
