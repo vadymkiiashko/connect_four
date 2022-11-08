@@ -23,10 +23,7 @@ class Game
     end
 
     def askForInput 
-        def inputInBounds? (columnIndex) 
-            return true if columnIndex < grid.grid.size && columnIndex > -1  
-                return false
-            end
+
         loop do     
             print ('Current player ' + @currentPlayer + '>')
             columnIndex = gets.chomp().to_i
@@ -40,6 +37,8 @@ class Game
     def checkForVictory()
         indexRow = grid.getCurrentRow(currentIndex , currentPlayer)
         spree = Hash.new() 
+        
+        #recursive function with functions as arguments
         if exploreHorizontal( indexRow ,currentIndex , spree) == true 
             if spree.size ==4
                 puts('player ' + currentPlayer + ' won')
@@ -73,16 +72,16 @@ class Game
 
     private
 
-    def validate( indexRow , indexColumn ,  spree)
-        return false if (indexRow < 0 || indexRow > grid.grid.size-1)
-        return false if (indexColumn < 0 || indexColumn > grid.grid.size) 
-        return false if (spree.key?([indexRow,indexColumn]))  
-        return false if (grid.grid[indexRow][indexColumn] != currentPlayer)
-        return true
+    def notValidNext?( indexRow , indexColumn ,  spree)
+        return true if !inputInBounds?(indexRow)
+        return true if !inputInBounds?(indexColumn) 
+        return true if (spree.key?([indexRow,indexColumn]))  
+        return true if (grid.grid[indexRow][indexColumn] != currentPlayer)
+        return false
     end
     
     def exploreHorizontal (indexRow , indexColumn ,  spree )
-        return false if validate(indexRow , indexColumn , spree) == false
+        return false if notValidNext?(indexRow , indexColumn , spree)
         spree.store([indexRow,indexColumn] , currentPlayer)
         exploreHorizontal(indexRow , indexColumn-1 , spree)
         exploreHorizontal(indexRow , indexColumn+1 , spree)
@@ -90,7 +89,7 @@ class Game
     end
     
     def exploreVertical (indexRow , indexColumn , spree )
-        return false if validate(indexRow , indexColumn ,  spree) == false
+        return false if notValidNext?(indexRow , indexColumn ,  spree)
         spree.store([indexRow,indexColumn] , currentPlayer)
         exploreVertical(indexRow-1 , indexColumn  , spree)
         exploreVertical(indexRow+1 , indexColumn  , spree)
@@ -98,7 +97,7 @@ class Game
     end
     
     def exploreLeftToRight ( indexRow , indexColumn ,  spree )
-        return false if validate( indexRow , indexColumn ,  spree) == false
+        return false if notValidNext?( indexRow , indexColumn ,  spree)
         spree.store([indexRow,indexColumn] , currentPlayer)
         exploreLeftToRight( indexRow-1 , indexColumn-1 ,  spree)
         exploreLeftToRight( indexRow+1 , indexColumn+1 ,  spree)
@@ -106,11 +105,17 @@ class Game
     end
     
     def exploreRightToLeft ( indexRow , indexColumn , spree )
-        return false if validate( indexRow , indexColumn , spree) == false
+        return false if notValidNext?( indexRow , indexColumn , spree)
         spree.store([indexRow,indexColumn] , currentPlayer)
         exploreRightToLeft( indexRow+1 , indexColumn-1 , spree)
         exploreRightToLeft( indexRow-1 , indexColumn+1 , spree)
         return true
+    end
+
+
+    def inputInBounds? (columnIndex) 
+        return true if columnIndex < grid.grid.size && columnIndex > -1  
+            return false
     end
 
 end

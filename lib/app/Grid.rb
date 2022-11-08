@@ -7,8 +7,8 @@
         end      
         #TODO move to private
         def getRowForNewToken(indexColumn)
-            (grid.size-1).downto(0).each do |i|
-                return i if grid[i][indexColumn] == '.'
+            (grid.size-1).downto(0).each do |rowIndex|
+                return rowIndex if grid[rowIndex][indexColumn] == '.'
             end
         end
         
@@ -21,9 +21,9 @@
         def printGrid()
             puts('0   1   2   3   4   5   6   7   ')
             puts('--------------------------------')
-            (0..@grid.size-1).each do |i|
-                (0..@grid.size-1).each do |j|
-                    print(@grid[i][j] + ' | ')
+            (0..@grid.size-1).each do |rowIndex|
+                (0..@grid.size-1).each do |columnIndex|
+                    print(@grid[rowIndex][columnIndex] + ' | ')
                 end 
                 puts(' ')   
             end
@@ -38,11 +38,6 @@
             grid[indexRow][indexColumn] = currentPlayer
             
         end
-        
-        private
-           
-            
-           
-        
+
     end
 
