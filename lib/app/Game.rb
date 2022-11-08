@@ -23,10 +23,14 @@ class Game
     end
 
     def askForInput 
+        def inputInBounds? (columnIndex) 
+            return true if columnIndex < grid.grid.size && columnIndex > -1  
+                return false
+            end
         loop do     
             print ('Current player ' + @currentPlayer + '>')
             columnIndex = gets.chomp().to_i
-            if  columnIndex < grid.grid.size && columnIndex > -1 
+            if   inputInBounds?(columnIndex)
                 return columnIndex
             end
 
