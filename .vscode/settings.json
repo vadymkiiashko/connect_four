@@ -1,0 +1,4 @@
+{
+    "rufo.useBundler": true,
+    "npm.enableRunFromFolder": true
+}
