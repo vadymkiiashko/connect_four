@@ -38,8 +38,7 @@ class Game
     [exploreHorizontal(indexRow, currentIndex, spree) , exploreVertical(indexRow, currentIndex, spree) , exploreLeftToRight(indexRow, currentIndex, spree) , exploreRightToLeft ].each  { |check| 
         begin
             spree.clear()
-            return true  if check.call  && spree.size == 4     
-            return false
+            return  check.call  && spree.size == 4     
         end
     } 
 =begin///////////////////    #recursive function with functions as arguments
