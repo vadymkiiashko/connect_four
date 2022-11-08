@@ -38,7 +38,7 @@ class Game
     [:exploreHorizontal, :exploreVertical, :exploreLeftToRight, :exploreRightToLeft].each { |check|
       spree.clear()
 
-      return true if method(check).call(indexRow, currentIndex, spree)  && spree.size == 4
+      return true if method(check).call(indexRow, currentIndex, spree) && spree.size == 4
     }
     return false
   end
