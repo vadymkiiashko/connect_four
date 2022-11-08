@@ -35,8 +35,14 @@ class Game
   def checkForVictory()
     indexRow = grid.getCurrentRow(currentIndex, currentPlayer)
     spree = Hash.new()
-
-    #recursive function with functions as arguments
+    [exploreHorizontal(indexRow, currentIndex, spree) , exploreVertical(indexRow, currentIndex, spree) , exploreLeftToRight(indexRow, currentIndex, spree) , exploreRightToLeft ].each  { |check| 
+        begin
+            spree.clear()
+            return true  if check.call  && spree.size == 4     
+            return false
+        end
+    } 
+=begin///////////////////    #recursive function with functions as arguments
     if exploreHorizontal(indexRow, currentIndex, spree) == true
       if spree.size == 4
         puts("player " + currentPlayer + " won")
@@ -66,6 +72,7 @@ class Game
       end
     end
     return false
+=end
   end
 
   private
