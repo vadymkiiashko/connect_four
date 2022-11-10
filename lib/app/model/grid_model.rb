@@ -1,5 +1,5 @@
-class Model 
-  attr_accessor :grid 
+class Model
+  attr_accessor :grid
 
   def initialize()
     @grid = Array.new(8) { Array.new(8, ".") }
@@ -26,6 +26,4 @@ class Model
     indexRow = getRowForNewToken(indexColumn)
     grid[indexRow][indexColumn] = currentPlayer
   end
-
 end
-
